@@ -1,0 +1,35 @@
+%{
+
+#include "GalaxyStructs.hpp"
+
+%}
+
+%language=C++
+%define class-name BodySubtypeKey
+%define lookup-function-name Lookup
+%define initializer-suffix ,BodySubtypes::unknown,false
+%enum
+%readonly-tables
+
+struct BodySubtypeHash {
+    const char* name;
+    BodySubtypes subtype;
+    bool isScoopable;
+};
+
+%%
+"Neutron Star", BodySubtypes::neutron_star,false
+"A (Blue-White super giant) Star", BodySubtypes::a_star,true
+"A (Blue-White) Star", BodySubtypes::a_star,true
+"B (Blue-White super giant) Star",BodySubtypes::b_star,true
+"B (Blue-White) Star",BodySubtypes::b_star,true
+"F (White super giant) Star",BodySubtypes::f_star,true
+"F (White) Star",BodySubtypes::f_star,true
+"G (White-Yellow super giant) Star",BodySubtypes::g_star,true
+"G (White-Yellow) Star",BodySubtypes::g_star,true
+"K (Yellow-Orange giant) Star",BodySubtypes::k_star,true
+"K (Yellow-Orange) Star",BodySubtypes::k_star,true
+"M (Red dwarf) Star",BodySubtypes::m_star,true
+"M (Red giant) Star",BodySubtypes::m_star,true
+"M (Red super giant) Star",BodySubtypes::m_star,true
+"O (Blue-White) Star",BodySubtypes::o_star,true

@@ -1,0 +1,27 @@
+%{
+
+#include "GalaxyStructs.hpp"
+#include <cstddef>
+
+%}
+
+%language=C++
+%define class-name GalaxyKey
+%define lookup-function-name Lookup
+%define initializer-suffix ,ParseSection::same,ParseSection::same,ParseSection::same,ParseField::none,-1,ParseTypes::unknown
+%enum
+%readonly-tables
+
+struct KeyLookup;
+
+%%
+"id64", ParseSection::system,ParseSection::same,ParseSection::same,ParseField::id64,offsetof(System,id64),ParseTypes::integer
+"coords", ParseSection::system,ParseSection::coords,ParseSection::system,ParseField::none,-1,ParseTypes::unknown
+"x", ParseSection::coords,ParseSection::same,ParseSection::same,ParseField::x,offsetof(System,x),ParseTypes::real
+"y", ParseSection::coords,ParseSection::same,ParseSection::same,ParseField::y,offsetof(System,y),ParseTypes::real
+"z", ParseSection::coords,ParseSection::same,ParseSection::same,ParseField::z,offsetof(System,z),ParseTypes::real
+"bodies", ParseSection::system,ParseSection::bodies,ParseSection::system,ParseField::none,-1,ParseTypes::unknown
+"mainStar", ParseSection::bodies,ParseSection::same,ParseSection::same,ParseField::main_star,offsetof(Body,isMainStar),ParseTypes::boolean
+"type", ParseSection::bodies,ParseSection::same,ParseSection::same,ParseField::type,offsetof(Body,type),ParseTypes::scalar
+"subType", ParseSection::bodies,ParseSection::same,ParseSection::same,ParseField::subtype,offsetof(Body,subtype),ParseTypes::scalar
+"distanceToArrival", ParseSection::bodies,ParseSection::same,ParseSection::same,ParseField::distance_to_arrival,offsetof(Body,distanceToArrival),ParseTypes::integer

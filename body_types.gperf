@@ -1,0 +1,21 @@
+%{
+
+#include "GalaxyStructs.hpp"
+
+%}
+
+%language=C++
+%define class-name BodyTypeKey
+%define lookup-function-name Lookup
+%define initializer-suffix ,BodyTypes::star
+%enum
+%readonly-tables
+
+struct BodyTypeHash {
+    const char* name;
+    BodyTypes type;
+};
+
+%%
+"Star", BodyTypes::star
+"Planet", BodyTypes::planet
