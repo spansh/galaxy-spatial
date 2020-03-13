@@ -16,7 +16,6 @@ struct System {
     unsigned long int id64;
     bool isNeutron;
     bool isScoopable;
-    bool hasScoopable;
 };
 
 struct Body {
